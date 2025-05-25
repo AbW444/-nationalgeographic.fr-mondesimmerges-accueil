@@ -78,10 +78,9 @@
             font-family: 'Geograph', 'Inter', sans-serif;
             background-color: var(--dark-color);
             color: var(--text-color);
-            overflow-x: hidden; /* Masque seulement le scroll horizontal */
+            overflow-x: hidden;
             position: relative;
             line-height: 1.6;
-            /* Masquer la scrollbar mais permettre le scroll */
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
@@ -152,14 +151,12 @@
             transition: all var(--transition-smooth);
         }
 
-        /* Au survol, fond glassmorphisme moderne */
         .side-nav:hover {
             background: rgba(17, 17, 17, 0.95);
             padding: var(--spacing-lg) var(--spacing-md);
             border-right: 4px solid var(--primary-color-bright);
         }
 
-        /* Afficher le texte au survol avec style moderne */
         .side-nav:hover .nav-link {
             color: var(--text-color);
             opacity: 0.8;
@@ -218,12 +215,11 @@
             pointer-events: none;
             z-index: 999998;
             transform: translate(-50%, -50%);
-            transition: transform 0.08s ease-out, width 0.3s ease, height 0.3s ease, opacity 0.3s ease; /* Transition plus rapide */
+            transition: transform 0.08s ease-out, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
             opacity: 0.7;
             mix-blend-mode: difference;
         }
 
-        /* Effets au survol des éléments interactifs classiques */
         .cursor.hover {
             width: 50px;
             height: 50px;
@@ -235,21 +231,20 @@
             opacity: 1;
         }
 
-        /* Curseur avec effet de fusion "difference" au survol des vidéos */
         .cursor.video-hover {
             width: 80px !important;
             height: 80px !important;
             background: var(--primary-color-bright);
-            mix-blend-mode: difference !important; /* Force l'effet de fusion */
+            mix-blend-mode: difference !important;
             box-shadow: 0 0 20px var(--primary-color-bright);
-            filter: blur(1px); /* Léger flou pour effet artistique */
+            filter: blur(1px);
         }
 
         .cursor-follower.video-hover {
             width: 120px !important;
             height: 120px !important;
             border: 3px solid var(--primary-color-bright);
-            mix-blend-mode: difference !important; /* Force l'effet de fusion */
+            mix-blend-mode: difference !important;
             box-shadow: 0 0 30px rgba(255, 221, 0, 0.5);
             opacity: 0.8 !important;
         }
@@ -383,9 +378,36 @@
             transform: translate(-50%, -50%);
             object-fit: cover;
             filter: brightness(0.7) contrast(1.1);
-            transition: filter var(--transition-slow);
+            transition: opacity 0.5s ease;
             z-index: 1;
         }
+
+        /* Style pour les indicateurs de vidéo */
+        .video-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--primary-color-bright);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-family: 'Geograph', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 1000;
+            border: 1px solid var(--primary-color);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .video-indicator.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
 
         .logo-video {
             position: absolute;
@@ -397,7 +419,7 @@
             height: auto;
             transform: translate(-50%, -50%);
             object-fit: cover;
-            z-index: 3; /* Juste derrière le contenu mais au-dessus de l'overlay */
+            z-index: 3;
             opacity: 1;
             transition: opacity 0.5s ease;
             filter: none;
@@ -410,7 +432,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 99999; /* Premier plan absolu pour la transition */
+            z-index: 99999;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
@@ -432,13 +454,13 @@
                 rgba(17, 17, 17, 0.3) 0%,
                 rgba(17, 17, 17, 0.6) 100%
             );
-            z-index: 2; /* En dessous de la vidéo logo */
-            pointer-events: none; /* Ne pas bloquer les interactions avec la vidéo logo */
+            z-index: 2;
+            pointer-events: none;
         }
         
         .immerse-content {
             position: relative;
-            z-index: 5; /* Au-dessus de la vidéo logo */
+            z-index: 5;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -448,7 +470,6 @@
             color: white;
         }
         
-        /* Animations d'apparition avec positionnement précis */
         .immerse-title {
             font-family: 'Abyss', serif;
             font-size: clamp(3rem, 8vw, 6rem);
@@ -456,7 +477,7 @@
             line-height: 0.9;
             position: relative;
             text-align: left;
-            top: 0; /* Supprimé le décalage vers le haut */
+            top: 0;
             left: 0;
             opacity: 0;
             transform: translateY(80px) scale(0.8);
@@ -468,13 +489,13 @@
         
         .title-separator {
             position: absolute;
-            top: calc(100% + 16px); /* Gouttière augmentée à 16px */
+            top: calc(100% + 16px);
             left: 0;
             width: 0;
             height: 4px;
             background: var(--gradient-primary);
             border-radius: 2px;
-            animation: expandSeparator 1.2s cubic-bezier(0.19, 1, 0.22, 1) 2.8s forwards; /* En même temps que le titre */
+            animation: expandSeparator 1.2s cubic-bezier(0.19, 1, 0.22, 1) 2.8s forwards;
         }
 
         .immerse-subtitle {
@@ -482,7 +503,7 @@
             top: calc(100% + 32px);
             left: 0;
             font-family: 'Geograph', sans-serif;
-            font-size: clamp(1rem, 1.8vw, 1.4rem); /* Taille légèrement réduite */
+            font-size: clamp(1rem, 1.8vw, 1.4rem);
             font-weight: 300;
             color: var(--text-color);
             opacity: 0;
@@ -492,15 +513,14 @@
             max-width: 600px;
             margin: 0;
             padding: 0;
-            line-height: 1.3; /* Interligne réduit */
+            line-height: 1.3;
         }
 
-        /* Explore button avec fond noir et effet de survol */
         .explore-globe-btn {
             display: block;
             margin: 0 auto;
             padding: 18px 32px;
-            background: rgba(0, 0, 0, 0.9); /* Fond noir */
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(25px);
             border: 2px solid var(--primary-color);
             border-radius: 50px;
@@ -517,7 +537,7 @@
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
             opacity: 0;
             transform: translateY(40px) scale(0.9);
-            animation: buttonAppear 1.5s cubic-bezier(0.19, 1, 0.22, 1) 3.5s forwards; /* Apparition plus rapide */
+            animation: buttonAppear 1.5s cubic-bezier(0.19, 1, 0.22, 1) 3.5s forwards;
             position: relative;
             align-self: center;
         }
@@ -544,12 +564,11 @@
 
         .explore-globe-btn:hover {
             color: var(--dark-color);
-            transform: translateY(-8px) scale(1.05); /* Grossit et monte au survol */
+            transform: translateY(-8px) scale(1.05);
             border-color: var(--primary-color-bright);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
         }
 
-        /* Animations personnalisées */
         @keyframes titleAppear {
             0% {
                 opacity: 0;
@@ -605,7 +624,6 @@
             }
         }
 
-        /* Responsivité */
         @media (max-width: 768px) {
             .nav-menu {
                 gap: var(--spacing-sm);
@@ -641,6 +659,13 @@
     <!-- Curseur personnalisé -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
+
+    <!-- Indicateur de vidéo actuelle -->
+    <div class="video-indicator" id="videoIndicator">
+        Vidéo d'arrière-plan 1/4
+    </div>
+
+
 
     <!-- Top Navigation -->
     <div class="top-nav">
@@ -686,13 +711,13 @@
     <!-- Mondes Immergés Section -->
     <section id="immerse" class="immerse-section">
         <div class="immerse-background">
-            <!-- Vidéo de fond en boucle - MISE À JOUR VERS WEBM -->
-            <video class="bg-video" autoplay muted loop playsinline>
+            <!-- Vidéo de fond en boucle -->
+            <video class="bg-video" autoplay muted loop playsinline id="backgroundVideo">
                 <source src="./videos/video-arriereplan.webm" type="video/webm">
                 Votre navigateur ne supporte pas les vidéos HTML5.
             </video>
             
-            <!-- Vidéo du logo (avec fond blanc, derrière le contenu) -->
+            <!-- Vidéo du logo -->
             <video class="logo-video" autoplay muted playsinline id="logoVideo">
                 <source src="./videos/anim-logo.webm" type="video/webm">
                 Votre navigateur ne supporte pas les vidéos HTML5.
@@ -708,7 +733,6 @@
                 <p class="immerse-subtitle">Exploration des milieux aquatiques en disparition</p>
             </div>
             
-            <!-- Bouton dans le flux normal du document -->
             <button class="explore-globe-btn" id="exploreBtn">Cliquer pour Explorer</button>
         </div>
     </section>
@@ -721,6 +745,76 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Variables pour le système de changement de vidéos
+            const backgroundVideo = document.getElementById('backgroundVideo');
+            const videoIndicator = document.getElementById('videoIndicator');
+            
+            // Liste des vidéos d'arrière-plan
+            const videoSources = [
+                './videos/video-arriereplan.webm',
+                './videos/map-video-poisson_90mo.webm',
+                './videos/img-satellite.webm',
+                './videos/satellite-video-chroma.webm'
+            ];
+            
+            // Noms des vidéos pour l'indicateur
+            const videoNames = [
+                'Vidéo d\'arrière-plan',
+                'Vidéo d\'arrière-plan',
+                'Vidéo d\'arrière-plan',
+                'Vidéo d\'arrière-plan'
+            ];
+            
+            let currentVideoIndex = 0;
+            
+            // Fonction pour changer la vidéo
+            function changeBackgroundVideo() {
+                // Passer à la vidéo suivante
+                currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+                
+                // Mettre à jour la source de la vidéo
+                const newSource = videoSources[currentVideoIndex];
+                backgroundVideo.src = newSource;
+                
+                // Recharger et relancer la vidéo
+                backgroundVideo.load();
+                backgroundVideo.play().catch(function(e) {
+                    console.log('Erreur lors de la lecture de la nouvelle vidéo:', e);
+                });
+                
+                // Mettre à jour l'indicateur
+                updateVideoIndicator();
+                
+                console.log(`Vidéo changée vers: ${newSource} (${currentVideoIndex + 1}/${videoSources.length})`);
+            }
+            
+            // Fonction pour mettre à jour l'indicateur
+            function updateVideoIndicator() {
+                videoIndicator.textContent = `${videoNames[currentVideoIndex]} (${currentVideoIndex + 1}/${videoSources.length})`;
+                
+                // Animation de l'indicateur
+                videoIndicator.classList.remove('show');
+                setTimeout(() => {
+                    videoIndicator.classList.add('show');
+                }, 100);
+                
+                // Masquer l'indicateur après 3 secondes
+                setTimeout(() => {
+                    videoIndicator.classList.remove('show');
+                }, 3000);
+            }
+            
+            // Afficher l'indicateur initial seulement lors des changements
+            // (supprimé l'affichage automatique au chargement)
+            
+            // Écouter la touche Entrée
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.keyCode === 13) {
+                    e.preventDefault();
+                    changeBackgroundVideo();
+                }
+            });
+            
             // Initialisation du curseur personnalisé
             const cursor = document.querySelector('.cursor');
             const follower = document.querySelector('.cursor-follower');
@@ -730,7 +824,6 @@
             let followerX = 0;
             let followerY = 0;
             
-            // Vérifier si on survole la vidéo de fond pour ajuster le curseur
             document.addEventListener('mousemove', function(e) {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
@@ -738,7 +831,6 @@
                 cursor.style.left = mouseX + 'px';
                 cursor.style.top = mouseY + 'px';
                 
-                // Détecter si on survole la vidéo de fond
                 const element = document.elementFromPoint(e.clientX, e.clientY);
                 if (element && (element.tagName === 'VIDEO' || element.classList.contains('bg-video'))) {
                     cursor.style.width = '60px';
@@ -746,7 +838,6 @@
                     follower.style.width = '80px';
                     follower.style.height = '80px';
                 } else {
-                    // Vérifier si on survole un élément interactif
                     const isInteractive = element && (
                         element.tagName === 'A' || 
                         element.tagName === 'BUTTON' ||
@@ -767,12 +858,11 @@
                 }
             });
             
-            // Animation fluide du follower (plus proche et réactif)
             function animateFollower() {
                 const dx = mouseX - followerX;
                 const dy = mouseY - followerY;
                 
-                followerX += dx * 0.2; // Augmenté de 0.1 à 0.2 pour suivre de plus près
+                followerX += dx * 0.2;
                 followerY += dy * 0.2;
                 
                 follower.style.left = followerX + 'px';
@@ -787,16 +877,13 @@
             document.addEventListener('mouseenter', function() {
                 cursor.style.opacity = '1';
                 follower.style.opacity = '0.7';
-                console.log('Mouse entered page - cursors visible');
             });
             
             document.addEventListener('mouseleave', function() {
                 cursor.style.opacity = '0';
                 follower.style.opacity = '0';
-                console.log('Mouse left page - cursors hidden');
             });
             
-            // Réapparition au retour dans la fenêtre
             window.addEventListener('mouseenter', function() {
                 cursor.style.opacity = '1';
                 follower.style.opacity = '0.7';
@@ -807,7 +894,7 @@
                 follower.style.opacity = '0';
             });
             
-            // Effets de survol pour les éléments interactifs (simplifiés car gérés dans mousemove)
+            // Effets de survol pour les éléments interactifs
             const interactiveElements = document.querySelectorAll('a, button, .explore-globe-btn');
             
             interactiveElements.forEach(function(el) {
@@ -838,7 +925,7 @@
                 });
             }
             
-            // Gestion de la vidéo du logo (avec fond blanc, derrière le contenu)
+            // Gestion de la vidéo du logo
             if (logoVideo) {
                 logoVideo.addEventListener('loadeddata', function() {
                     logoVideo.play().catch(function(e) {
@@ -846,21 +933,29 @@
                     });
                 });
                 
-                // Masquer la vidéo du logo après sa lecture
                 logoVideo.addEventListener('ended', function() {
-                    logoVideo.classList.add('hidden');
+                    logoVideo.style.opacity = '0';
+                    setTimeout(() => {
+                        logoVideo.style.display = 'none';
+                    }, 500);
                     console.log('Logo video finished, hiding overlay');
                 });
                 
                 logoVideo.addEventListener('error', function() {
                     console.log('Logo video error, hiding overlay');
-                    logoVideo.classList.add('hidden');
+                    logoVideo.style.opacity = '0';
+                    setTimeout(() => {
+                        logoVideo.style.display = 'none';
+                    }, 500);
                 });
                 
                 // Sécurité : masquer après 10 secondes maximum
                 setTimeout(function() {
-                    if (!logoVideo.classList.contains('hidden')) {
-                        logoVideo.classList.add('hidden');
+                    if (logoVideo.style.display !== 'none') {
+                        logoVideo.style.opacity = '0';
+                        setTimeout(() => {
+                            logoVideo.style.display = 'none';
+                        }, 500);
                         console.log('Logo video timeout, hiding overlay');
                     }
                 }, 10000);
@@ -876,14 +971,13 @@
                     
                     // Activer la vidéo de transition
                     transitionVideo.classList.add('active');
-                    transitionVideo.currentTime = 0; // Remettre au début
+                    transitionVideo.currentTime = 0;
                     
                     // Lancer la vidéo
                     transitionVideo.play().then(() => {
                         console.log('Vidéo de transition lancée');
                     }).catch(e => {
                         console.log('Erreur vidéo transition:', e);
-                        // En cas d'erreur, rediriger immédiatement
                         handleRedirection();
                     });
                     
@@ -891,7 +985,7 @@
                     transitionVideo.addEventListener('ended', function() {
                         console.log('Vidéo de transition terminée - Redirection...');
                         handleRedirection();
-                    }, { once: true }); // Une seule fois
+                    }, { once: true });
                     
                     // Sécurité : redirection après 10 secondes max
                     setTimeout(() => {
@@ -902,17 +996,16 @@
                     }, 10000);
                 });
                 
-				   // Fonction de redirection
-					function handleRedirection() {
-						console.log('>>> REDIRECTION VERS PAGE-INTERFACE <<<');
-						
-						// Masquer la vidéo de transition
-						transitionVideo.classList.remove('active');
-						
-						// Redirection vers la page interface hébergée sur GitHub
-						window.location.href = 'https://abw444.github.io/page-interface-immersive/';
-					}
-
+                // Fonction de redirection
+                function handleRedirection() {
+                    console.log('>>> REDIRECTION VERS LOCALHOST:3000 <<<');
+                    
+                    // Masquer la vidéo de transition
+                    transitionVideo.classList.remove('active');
+                    
+                    // Redirection vers localhost:3000
+                    window.location.href = 'http://localhost:3000/';
+                }
             }
             
             // Smooth scroll pour les liens de navigation
@@ -933,6 +1026,7 @@
             });
             
             console.log('Page Mondes Immergés initialisée avec succès');
+            console.log('Appuyez sur Entrée pour changer la vidéo d\'arrière-plan');
         });
     </script>
 </body>
