@@ -466,7 +466,7 @@
             align-items: flex-start;
             justify-content: space-between;
             height: 100vh;
-            padding: 80px 5% 5% 5%;
+            padding: 80px 5% 10% 5%;
             color: white;
         }
         
@@ -624,6 +624,7 @@
             }
         }
 
+        /* Media Queries existantes inchangées */
         @media (max-width: 768px) {
             .nav-menu {
                 gap: var(--spacing-sm);
@@ -651,6 +652,339 @@
 
             .immerse-content {
                 padding: 0 var(--spacing-md);
+            }
+        }
+
+        /* ========================================
+           NOUVELLES RÈGLES RESPONSIVE AJOUTÉES
+           ======================================== */
+
+        /* TABLETTES (768px - 1024px) */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .top-nav {
+                padding: 8px 15px;
+                font-size: 11px;
+            }
+            
+            .top-nav a {
+                margin-left: 10px;
+            }
+
+            .header-container {
+                padding: 0 15px;
+                height: 55px;
+            }
+            
+            .logo {
+                left: 15px;
+                top: 8px;
+                height: 38px;
+            }
+            
+            .nav-menu li {
+                margin: 0 8px;
+            }
+            
+            .nav-menu a {
+                font-size: 10px;
+                padding: 4px 0;
+            }
+
+            .immerse-content {
+                padding: 70px 4% 8% 4%;
+            }
+            
+            .immerse-title {
+                font-size: clamp(2.5rem, 7vw, 5rem);
+            }
+            
+            .immerse-subtitle {
+                font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+                max-width: 500px;
+            }
+            
+            .explore-globe-btn {
+                padding: 16px 28px;
+                font-size: 15px;
+                letter-spacing: 1.5px;
+            }
+
+            .side-nav {
+                padding: var(--spacing-sm) var(--spacing-xs);
+            }
+            
+            .side-nav li {
+                margin: var(--spacing-sm) 0;
+            }
+            
+            .nav-link {
+                font-size: 11px;
+            }
+
+            .video-indicator {
+                top: 15px;
+                right: 15px;
+                padding: 8px 16px;
+                font-size: 13px;
+                border-radius: 15px;
+            }
+        }
+
+        /* MOBILES GÉNÉRAUX (max-width: 768px) */
+        @media (max-width: 768px) {
+            /* Curseur désactivé sur mobile */
+            .cursor,
+            .cursor-follower {
+                display: none !important;
+            }
+            
+            * {
+                cursor: auto !important;
+            }
+
+            .top-nav {
+                padding: 6px 10px;
+                font-size: 10px;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+            
+            .top-nav a {
+                margin-left: 8px;
+                font-size: 10px;
+                white-space: nowrap;
+            }
+
+            .header-container {
+                padding: 0 10px;
+                height: 50px;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .logo {
+                position: relative;
+                left: auto;
+                top: auto;
+                height: 32px;
+                margin-bottom: 5px;
+            }
+            
+            .nav-menu {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 0 5px;
+                margin: 0;
+                width: auto;
+                max-width: 100%;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                gap: 0;
+                flex-wrap: nowrap;
+            }
+            
+            .nav-menu::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .nav-menu li {
+                margin: 0 6px;
+                flex-shrink: 0;
+            }
+            
+            .nav-menu a {
+                font-size: 9px;
+                padding: 3px 0;
+                white-space: nowrap;
+            }
+
+            .immerse-content {
+                padding: 60px 4% 6% 4%;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .immerse-title {
+                font-size: clamp(2rem, 12vw, 4rem);
+                line-height: 0.85;
+                text-align: center;
+                position: static;
+            }
+            
+            .title-separator {
+                position: relative;
+                top: 16px;
+                margin: 0 auto;
+                left: auto;
+            }
+            
+            .immerse-subtitle {
+                position: relative;
+                top: 32px;
+                left: auto;
+                text-align: center;
+                font-size: clamp(0.8rem, 3.5vw, 1.1rem);
+                max-width: 90%;
+                margin: 0 auto;
+            }
+            
+            .explore-globe-btn {
+                padding: 14px 24px;
+                font-size: 14px;
+                letter-spacing: 1px;
+                margin-top: 20px;
+            }
+
+            .side-nav {
+                display: none;
+            }
+
+            .video-indicator {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                padding: 6px 12px;
+                font-size: 12px;
+                border-radius: 12px;
+                text-align: center;
+            }
+
+            @keyframes expandSeparator {
+                0% {
+                    width: 0;
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    width: 80px;
+                    opacity: 1;
+                }
+            }
+        }
+
+        /* PETITS MOBILES (max-width: 480px) */
+        @media (max-width: 480px) {
+            .top-nav {
+                padding: 4px 8px;
+                font-size: 9px;
+            }
+            
+            .top-nav a {
+                margin-left: 6px;
+                font-size: 9px;
+            }
+
+            .header-container {
+                height: 45px;
+                padding: 0 8px;
+            }
+            
+            .logo {
+                height: 28px;
+                margin-bottom: 3px;
+            }
+            
+            .nav-menu li {
+                margin: 0 4px;
+            }
+            
+            .nav-menu a {
+                font-size: 8px;
+                padding: 2px 0;
+            }
+
+            .immerse-content {
+                padding: 50px 3% 5% 3%;
+            }
+            
+            .immerse-title {
+                font-size: clamp(1.8rem, 14vw, 3.5rem);
+                line-height: 0.8;
+            }
+            
+            .immerse-subtitle {
+                font-size: clamp(0.7rem, 4vw, 1rem);
+                max-width: 95%;
+            }
+            
+            .explore-globe-btn {
+                padding: 12px 20px;
+                font-size: 13px;
+                letter-spacing: 0.5px;
+                margin-top: 15px;
+            }
+
+            .video-indicator {
+                padding: 5px 10px;
+                font-size: 11px;
+                border-radius: 10px;
+            }
+        }
+
+        /* PAYSAGE MOBILE */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .immerse-content {
+                padding: 40px 4% 4% 4%;
+                justify-content: center;
+            }
+            
+            .immerse-title {
+                font-size: clamp(1.5rem, 8vw, 3rem);
+                line-height: 0.9;
+            }
+            
+            .immerse-subtitle {
+                font-size: clamp(0.7rem, 2.5vw, 1rem);
+                top: 20px;
+            }
+            
+            .title-separator {
+                top: 12px;
+            }
+            
+            .explore-globe-btn {
+                padding: 10px 18px;
+                font-size: 12px;
+                margin-top: 10px;
+            }
+        }
+
+        /* TRÈS GRANDS ÉCRANS (min-width: 1440px) */
+        @media (min-width: 1440px) {
+            .top-nav {
+                padding: 8px 40px;
+                font-size: 13px;
+            }
+            
+            .header-container {
+                padding: 0 40px;
+                height: 70px;
+            }
+            
+            .logo {
+                left: 40px;
+                top: 15px;
+                height: 45px;
+            }
+            
+            .nav-menu li {
+                margin: 0 15px;
+            }
+            
+            .nav-menu a {
+                font-size: 12px;
+            }
+            
+            .immerse-content {
+                padding: 100px 6% 12% 6%;
+            }
+            
+            .explore-globe-btn {
+                padding: 20px 36px;
+                font-size: 17px;
             }
         }
     </style>
@@ -815,97 +1149,99 @@
                 }
             });
             
-            // Initialisation du curseur personnalisé
-            const cursor = document.querySelector('.cursor');
-            const follower = document.querySelector('.cursor-follower');
-            
-            let mouseX = 0;
-            let mouseY = 0;
-            let followerX = 0;
-            let followerY = 0;
-            
-            document.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+            // Initialisation du curseur personnalisé (désactivé sur mobile)
+            if (window.innerWidth > 768) {
+                const cursor = document.querySelector('.cursor');
+                const follower = document.querySelector('.cursor-follower');
                 
-                cursor.style.left = mouseX + 'px';
-                cursor.style.top = mouseY + 'px';
+                let mouseX = 0;
+                let mouseY = 0;
+                let followerX = 0;
+                let followerY = 0;
                 
-                const element = document.elementFromPoint(e.clientX, e.clientY);
-                if (element && (element.tagName === 'VIDEO' || element.classList.contains('bg-video'))) {
-                    cursor.style.width = '60px';
-                    cursor.style.height = '60px';
-                    follower.style.width = '80px';
-                    follower.style.height = '80px';
-                } else {
-                    const isInteractive = element && (
-                        element.tagName === 'A' || 
-                        element.tagName === 'BUTTON' ||
-                        element.classList.contains('explore-globe-btn')
-                    );
+                document.addEventListener('mousemove', function(e) {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
                     
-                    if (isInteractive) {
-                        cursor.style.width = '50px';
-                        cursor.style.height = '50px';
-                        follower.style.width = '70px';
-                        follower.style.height = '70px';
+                    cursor.style.left = mouseX + 'px';
+                    cursor.style.top = mouseY + 'px';
+                    
+                    const element = document.elementFromPoint(e.clientX, e.clientY);
+                    if (element && (element.tagName === 'VIDEO' || element.classList.contains('bg-video'))) {
+                        cursor.style.width = '60px';
+                        cursor.style.height = '60px';
+                        follower.style.width = '80px';
+                        follower.style.height = '80px';
                     } else {
-                        cursor.style.width = '30px';
-                        cursor.style.height = '30px';
-                        follower.style.width = '40px';
-                        follower.style.height = '40px';
+                        const isInteractive = element && (
+                            element.tagName === 'A' || 
+                            element.tagName === 'BUTTON' ||
+                            element.classList.contains('explore-globe-btn')
+                        );
+                        
+                        if (isInteractive) {
+                            cursor.style.width = '50px';
+                            cursor.style.height = '50px';
+                            follower.style.width = '70px';
+                            follower.style.height = '70px';
+                        } else {
+                            cursor.style.width = '30px';
+                            cursor.style.height = '30px';
+                            follower.style.width = '40px';
+                            follower.style.height = '40px';
+                        }
                     }
-                }
-            });
-            
-            function animateFollower() {
-                const dx = mouseX - followerX;
-                const dy = mouseY - followerY;
-                
-                followerX += dx * 0.2;
-                followerY += dy * 0.2;
-                
-                follower.style.left = followerX + 'px';
-                follower.style.top = followerY + 'px';
-                
-                requestAnimationFrame(animateFollower);
-            }
-            
-            animateFollower();
-            
-            // Gestion de l'entrée et sortie de la page
-            document.addEventListener('mouseenter', function() {
-                cursor.style.opacity = '1';
-                follower.style.opacity = '0.7';
-            });
-            
-            document.addEventListener('mouseleave', function() {
-                cursor.style.opacity = '0';
-                follower.style.opacity = '0';
-            });
-            
-            window.addEventListener('mouseenter', function() {
-                cursor.style.opacity = '1';
-                follower.style.opacity = '0.7';
-            });
-            
-            window.addEventListener('mouseleave', function() {
-                cursor.style.opacity = '0';
-                follower.style.opacity = '0';
-            });
-            
-            // Effets de survol pour les éléments interactifs
-            const interactiveElements = document.querySelectorAll('a, button, .explore-globe-btn');
-            
-            interactiveElements.forEach(function(el) {
-                el.addEventListener('mouseenter', function() {
-                    follower.style.opacity = '1';
                 });
                 
-                el.addEventListener('mouseleave', function() {
+                function animateFollower() {
+                    const dx = mouseX - followerX;
+                    const dy = mouseY - followerY;
+                    
+                    followerX += dx * 0.2;
+                    followerY += dy * 0.2;
+                    
+                    follower.style.left = followerX + 'px';
+                    follower.style.top = followerY + 'px';
+                    
+                    requestAnimationFrame(animateFollower);
+                }
+                
+                animateFollower();
+                
+                // Gestion de l'entrée et sortie de la page
+                document.addEventListener('mouseenter', function() {
+                    cursor.style.opacity = '1';
                     follower.style.opacity = '0.7';
                 });
-            });
+                
+                document.addEventListener('mouseleave', function() {
+                    cursor.style.opacity = '0';
+                    follower.style.opacity = '0';
+                });
+                
+                window.addEventListener('mouseenter', function() {
+                    cursor.style.opacity = '1';
+                    follower.style.opacity = '0.7';
+                });
+                
+                window.addEventListener('mouseleave', function() {
+                    cursor.style.opacity = '0';
+                    follower.style.opacity = '0';
+                });
+                
+                // Effets de survol pour les éléments interactifs
+                const interactiveElements = document.querySelectorAll('a, button, .explore-globe-btn');
+                
+                interactiveElements.forEach(function(el) {
+                    el.addEventListener('mouseenter', function() {
+                        follower.style.opacity = '1';
+                    });
+                    
+                    el.addEventListener('mouseleave', function() {
+                        follower.style.opacity = '0.7';
+                    });
+                });
+            }
             
             // Gestion des vidéos de fond
             const bgVideo = document.querySelector('.bg-video');
@@ -969,6 +1305,9 @@
                 exploreBtn.addEventListener('click', function() {
                     console.log('>>> DÉCLENCHEMENT DE LA TRANSITION <<<');
                     
+                    // Désactiver le bouton pour éviter les clics multiples
+                    exploreBtn.style.pointerEvents = 'none';
+                    
                     // Activer la vidéo de transition
                     transitionVideo.classList.add('active');
                     transitionVideo.currentTime = 0;
@@ -976,35 +1315,51 @@
                     // Lancer la vidéo
                     transitionVideo.play().then(() => {
                         console.log('Vidéo de transition lancée');
+                        
+                        // Écouter la fin de la vidéo pour la redirection EXACTE
+                        transitionVideo.addEventListener('ended', function() {
+                            console.log('Vidéo de transition terminée - Redirection IMMÉDIATE...');
+                            handleRedirection();
+                        }, { once: true });
+                        
                     }).catch(e => {
-                        console.log('Erreur vidéo transition:', e);
+                        console.log('Erreur lors du lancement de la vidéo:', e);
+                        // En cas d'erreur, redirection immédiate
                         handleRedirection();
                     });
                     
-                    // Quand la vidéo se termine, déclencher la redirection
-                    transitionVideo.addEventListener('ended', function() {
-                        console.log('Vidéo de transition terminée - Redirection...');
-                        handleRedirection();
+                    // Sécurité : vérifier la durée de la vidéo et forcer la redirection si nécessaire
+                    transitionVideo.addEventListener('loadedmetadata', function() {
+                        const videoDuration = transitionVideo.duration;
+                        console.log('Durée de la vidéo de transition:', videoDuration + 's');
+                        
+                        // Timeout basé sur la durée réelle de la vidéo + 1 seconde de sécurité
+                        setTimeout(() => {
+                            if (transitionVideo.classList.contains('active')) {
+                                console.log('Timeout sécurité - Forcer la redirection');
+                                handleRedirection();
+                            }
+                        }, (videoDuration + 1) * 1000);
                     }, { once: true });
                     
-                    // Sécurité : redirection après 10 secondes max
+                    // Fallback ultime : 15 secondes maximum
                     setTimeout(() => {
                         if (transitionVideo.classList.contains('active')) {
-                            console.log('Timeout vidéo transition - Redirection forcée');
+                            console.log('Timeout ultime - Redirection forcée');
                             handleRedirection();
                         }
-                    }, 10000);
+                    }, 15000);
                 });
                 
                 // Fonction de redirection
                 function handleRedirection() {
-                    console.log('>>> REDIRECTION VERS LOCALHOST:3000 <<<');
+                    console.log('>>> REDIRECTION VERS https://abw444.github.io/page-interface-immersive/ <<<');
                     
                     // Masquer la vidéo de transition
                     transitionVideo.classList.remove('active');
                     
-                    // Redirection vers localhost:3000
-                    window.location.href = 'http://localhost:3000/';
+                    // Redirection vers la nouvelle URL
+                    window.location.href = 'https://abw444.github.io/page-interface-immersive/';
                 }
             }
             
