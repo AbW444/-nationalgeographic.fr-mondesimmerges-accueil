@@ -656,6 +656,245 @@
         }
 
         /* ========================================
+           CORRECTIONS RESPONSIVE URGENTES
+           ======================================== */
+
+        /* CORRECTION POUR TABLETTES ET MOBILES PAYSAGE */
+        @media (max-width: 1024px) {
+            /* Header corrigé avec plus de hauteur pour les menus */
+            .header-container {
+                height: auto;
+                min-height: 70px; /* Augmenté pour plus d'espace */
+                padding: 8px 10px 12px 10px; /* Plus d'espace en bas */
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .logo {
+                position: relative;
+                left: auto;
+                top: auto;
+                height: 28px; /* Logo plus petit */
+                margin-bottom: 15px; /* Plus d'espace sous le logo */
+                order: 1;
+            }
+            
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px; /* Plus d'espace entre les éléments */
+                margin: 0;
+                padding: 8px 0 4px 0; /* Plus d'espace vertical */
+                order: 2;
+                min-height: 35px; /* Hauteur minimum pour éviter les coupures */
+            }
+            
+            .nav-menu li {
+                margin: 3px 5px; /* Plus d'espace autour des éléments */
+                flex-shrink: 0;
+            }
+            
+            .nav-menu a {
+                font-size: 10px; /* Taille légèrement plus grande */
+                padding: 6px 10px; /* Plus de padding */
+                white-space: nowrap;
+                background: rgba(0, 0, 0, 0.1);
+                border-radius: 15px;
+                line-height: 1.2;
+            }
+
+            /* Top nav corrigé avec plus d'espace */
+            .top-nav {
+                padding: 6px 10px 8px 10px; /* Plus d'espace vertical */
+                font-size: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px; /* Plus d'espace entre les éléments */
+                min-height: 30px; /* Hauteur minimum */
+            }
+            
+            .top-nav a {
+                margin: 3px;
+                font-size: 10px; /* Taille légèrement plus grande */
+                padding: 4px 8px; /* Plus de padding */
+                border-radius: 10px;
+                background: rgba(255, 255, 255, 0.1);
+                line-height: 1.2;
+            }
+
+            /* Contenu principal avec bouton plus bas */
+            .immerse-content {
+                padding: 80px 3% 8% 3%; /* Plus d'espace en haut */
+                justify-content: space-between; /* Répartition verticale */
+                align-items: center;
+                text-align: center;
+                height: calc(100vh - 100px); /* Prendre en compte la hauteur du header */
+            }
+            
+            .immerse-title {
+                font-size: clamp(1.8rem, 8vw, 3.5rem);
+                line-height: 0.85;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .title-separator {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 15px auto;
+                width: 60px;
+            }
+            
+            .immerse-subtitle {
+                position: relative;
+                top: auto;
+                left: auto;
+                text-align: center;
+                font-size: clamp(0.8rem, 3vw, 1.1rem);
+                max-width: 90%;
+                margin: 0 auto 40px auto; /* Plus d'espace avant le bouton */
+                line-height: 1.4;
+            }
+            
+            .explore-globe-btn {
+                position: relative;
+                margin: 80px auto 60px; /* Bouton encore plus bas */
+                padding: 14px 28px;
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+        }
+
+        /* CORRECTIONS SPÉCIFIQUES MOBILES */
+        @media (max-width: 768px) {
+            .header-container {
+                height: auto;
+                min-height: 65px; /* Plus d'espace */
+                padding: 6px 8px 10px 8px;
+            }
+            
+            .logo {
+                height: 24px; /* Logo plus petit */
+                margin-bottom: 12px;
+            }
+            
+            .nav-menu {
+                min-height: 30px;
+                padding: 6px 0 3px 0;
+                gap: 8px;
+            }
+            
+            .nav-menu a {
+                font-size: 9px;
+                padding: 5px 8px;
+            }
+            
+            .top-nav {
+                padding: 5px 8px 6px 8px;
+                font-size: 9px;
+                min-height: 25px;
+                gap: 6px;
+            }
+            
+            .top-nav a {
+                font-size: 9px;
+                padding: 3px 6px;
+            }
+
+            .immerse-content {
+                padding: 70px 4% 6% 4%;
+                height: calc(100vh - 90px);
+            }
+            
+            .immerse-title {
+                font-size: clamp(1.5rem, 10vw, 3rem);
+                margin-bottom: 15px;
+            }
+            
+            .title-separator {
+                width: 50px;
+                margin: 12px auto;
+            }
+            
+            .immerse-subtitle {
+                font-size: clamp(0.7rem, 3.5vw, 1rem);
+                margin: 0 auto 35px auto;
+                max-width: 95%;
+            }
+            
+            .explore-globe-btn {
+                padding: 12px 24px;
+                font-size: 13px;
+                margin: 70px auto 50px; /* Bouton plus bas */
+            }
+        }
+
+        /* CORRECTION POUR TRÈS PETITS ÉCRANS */
+        @media (max-width: 480px) {
+            .header-container {
+                min-height: 60px;
+                padding: 5px 6px 8px 6px;
+            }
+            
+            .logo {
+                height: 20px; /* Logo encore plus petit */
+                margin-bottom: 10px;
+            }
+            
+            .nav-menu {
+                min-height: 28px;
+                padding: 5px 0 2px 0;
+                gap: 6px;
+            }
+            
+            .nav-menu a {
+                font-size: 8px;
+                padding: 4px 6px;
+            }
+            
+            .top-nav {
+                padding: 4px 6px 5px 6px;
+                font-size: 8px;
+                min-height: 22px;
+                gap: 4px;
+            }
+            
+            .top-nav a {
+                font-size: 8px;
+                padding: 2px 4px;
+            }
+
+            .immerse-content {
+                padding: 60px 3% 5% 3%;
+                height: calc(100vh - 80px);
+            }
+            
+            .immerse-title {
+                font-size: clamp(1.3rem, 12vw, 2.5rem);
+                margin-bottom: 12px;
+            }
+            
+            .title-separator {
+                width: 40px;
+                margin: 10px auto;
+            }
+            
+            .immerse-subtitle {
+                font-size: clamp(0.6rem, 4vw, 0.9rem);
+                margin: 0 auto 30px auto;
+            }
+            
+            .explore-globe-btn {
+                padding: 10px 20px;
+                font-size: 12px;
+                margin: 60px auto 40px; /* Bouton plus bas */
+            }
+        }
+
+        /* ========================================
            NOUVELLES RÈGLES RESPONSIVE AJOUTÉES
            ======================================== */
 
@@ -1304,9 +1543,6 @@
             if (exploreBtn && transitionVideo) {
                 exploreBtn.addEventListener('click', function() {
                     console.log('>>> DÉCLENCHEMENT DE LA TRANSITION <<<');
-                    
-                    // Désactiver le bouton pour éviter les clics multiples
-                    exploreBtn.style.pointerEvents = 'none';
                     
                     // Activer la vidéo de transition
                     transitionVideo.classList.add('active');
